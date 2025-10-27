@@ -5,7 +5,7 @@ public class Triangle {
     }
 
     private static void printTriangleArea(double a, double b, double c) {
-        System.out.println("Площадь треугольника со сторонами " + a + ", " + b + ", " + c + " = " + triangleSqrt ( a, b, c) );
+        System.out.println("Площадь треугольника со сторонами " + a + ", " + b + ", " + c + " = " + triangleSqrt(a,b,c) );
     }
 
     private static double triangleSqrt(double a, double b, double c) {
