@@ -24,7 +24,7 @@ public class TriangleTests {
             //OK
         }
     }
-    @Test
+     @Test
     void canCalculateArea() {
         var t = new Triangle(3.0, 4.0, 5.0);
         double result = t.triangleSqrt();
@@ -35,4 +35,12 @@ public class TriangleTests {
     void canCalculatePerimetr() {
         Assertions.assertEquals(12.0, new Triangle(3.0,4.0, 5.0).trianglePerimetr());
     }
+
+    @Test
+    void testEquality() {
+        var t1 = new Triangle(3.0, 4.0, 5.0);
+        var t2 = new Triangle(4.0, 3.0, 5.0);
+        Assertions.assertEquals(t1, t2);
+    }
+
 }

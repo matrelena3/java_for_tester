@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2321d90f-bbf3-4fc0-bba8-14f1745db707" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/Hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/Hello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/out/production/classes/ru/stqa/geometry/figures/Triangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/production/classes/ru/stqa/geometry/figures/Triangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/TriangleTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/out/test/classes/ru/stqa/geometry/figures/TriangleTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/main/java/ru/stqa/geometry/figures/Triangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/geometry/figures/TriangleTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/src/test/java/ru/stqa/geometry/figures/TriangleTests.java" afterDir="false" />
     </list>
@@ -89,20 +89,18 @@
       <recent name="Rectangle" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TriangleTests.SumSideTriangle">
-    <configuration name="Hello" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Hello" />
-      <module name="sandbox.main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MathTests.testDivideByZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TriangleTests.testEquality">
+    <configuration name="TriangleTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sandbox.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MathTests" />
-      <option name="METHOD_NAME" value="testDivideByZero" />
-      <option name="TEST_OBJECT" value="method" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.geometry.figures.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.geometry.figures" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.geometry.figures.TriangleTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -139,7 +137,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TriangleTests.cannotCreateTriangleWithNegativeSide" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TriangleTests.canCalculatePerimetr" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sandbox.test" />
       <extension name="coverage">
         <pattern>
@@ -149,7 +147,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.geometry.figures" />
       <option name="MAIN_CLASS_NAME" value="ru.stqa.geometry.figures.TriangleTests" />
-      <option name="METHOD_NAME" value="cannotCreateTriangleWithNegativeSide" />
+      <option name="METHOD_NAME" value="canCalculatePerimetr" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TriangleTests.testEquality" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sandbox.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.geometry.figures.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.geometry.figures" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.geometry.figures.TriangleTests" />
+      <option name="METHOD_NAME" value="testEquality" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,11 +171,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TriangleTests.SumSideTriangle" />
+        <item itemvalue="JUnit.TriangleTests.testEquality" />
+        <item itemvalue="JUnit.TriangleTests" />
         <item itemvalue="JUnit.TriangleTests.canCalculateArea" />
-        <item itemvalue="JUnit.TriangleTests.cannotCreateTriangleWithNegativeSide" />
-        <item itemvalue="Application.Hello" />
-        <item itemvalue="JUnit.MathTests.testDivideByZero" />
+        <item itemvalue="JUnit.TriangleTests.canCalculatePerimetr" />
+        <item itemvalue="JUnit.TriangleTests.SumSideTriangle" />
       </list>
     </recent_temporary>
   </component>
