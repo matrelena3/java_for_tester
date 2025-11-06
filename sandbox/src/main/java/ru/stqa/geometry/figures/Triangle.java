@@ -9,7 +9,7 @@ public record Triangle (double a, double b, double c) {
         if (a < 0 || b < 0 || c < 0) {
             throw new IllegalArgumentException( "Сторона треугольника не может быть отрицательной");
         }
-        if (a + b > c || a + c > b || c + b > a) {
+        if (a + b < c || a + c < b || c + b < a) {
             throw new IllegalArgumentException( "Сумма двух любых сторон не может быть меньше третьей");
         }
     }
