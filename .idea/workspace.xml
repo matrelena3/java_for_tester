@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2321d90f-bbf3-4fc0-bba8-14f1745db707" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupCreationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupRemovalTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/GroupCreationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/GroupRemovalTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,13 +92,13 @@
       <recent name="Rectangle" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.GroupCreationTests.CanCreateGroup">
+  <component name="RunManager" selected="Gradle.GroupCreationTests">
     <configuration name="GroupCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" value="-Pbrowser=chrome" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -126,7 +121,7 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="-Pbrowser=chrome" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -222,8 +217,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.GroupCreationTests.CanCreateGroup" />
         <item itemvalue="Gradle.GroupCreationTests" />
+        <item itemvalue="Gradle.GroupCreationTests.CanCreateGroup" />
         <item itemvalue="Gradle.GroupCreationTests.CanCreateGroupWithEmptyName (1)" />
         <item itemvalue="Gradle.GroupCreationTests.CanCreateGroupWithNameOnly" />
         <item itemvalue="Gradle.GroupCreationTests.CanCreateGroupWithEmptyName" />
