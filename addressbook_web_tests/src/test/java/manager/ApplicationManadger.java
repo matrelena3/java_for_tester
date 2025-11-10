@@ -7,13 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.text.ChoiceFormat;
 
 public class ApplicationManadger {
     protected WebDriver driver;
 
     private LoginHelper session;
     private GroupHelper groups;
+
+    private ClientHelper clients;
 
 
     public void init(String browser) {
@@ -44,6 +45,13 @@ public class ApplicationManadger {
             groups = new GroupHelper(this);
         }
         return groups;
+    }
+
+    public ClientHelper clients() {
+        if (clients == null) {
+            clients = new ClientHelper(this);
+        }
+        return clients;
     }
 
     public boolean isElementPresent(By locator) {
