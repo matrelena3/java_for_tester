@@ -27,7 +27,7 @@ public class ApplicationManadger {
                 throw new IllegalArgumentException(String.format("Unknown browser %s", browser));
             }
             Runtime.getRuntime().addShutdownHook(new Thread(driver::quit));
-            driver.get("https://localhost/addressbook/");
+            driver.get("http://localhost/addressbook/");
             driver.manage().window().setSize(new Dimension(930, 692));
             session().login("admin", "secret");
         }
