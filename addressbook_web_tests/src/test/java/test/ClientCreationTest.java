@@ -17,21 +17,21 @@ public class ClientCreationTest extends TestBase {
                 for (var address : List.of("", "Rus")) {
                     for (var home : List.of("", "110022")) {
                         for (var email : List.of("", "ok@ok.ru")) {
-                    result.add(new ClientData(firstname, lastname, address, home, email));
+                    result.add(new ClientData("", firstname, lastname, address, home, email));
                         }
                     }
                 }
             }
         }
         for (int i = 0; i < 5; i++) {
-            result.add(new ClientData(randomString(i * 10), randomString(i * 10), randomString(i * 10), randomString(i * 10), randomString(i * 10)));
+            result.add(new ClientData("", randomString(i * 10), randomString(i * 10), randomString(i * 10), randomString(i * 10), randomString(i * 10)));
         }
         return result;
     }
 
     public static List<ClientData> negativeClientProvider() {
         var result = new ArrayList<ClientData>(List.of(
-                new ClientData("firstname'", "", "", "", "")));
+                new ClientData("", "firstname'", "", "", "", "")));
         return result;
     }
 

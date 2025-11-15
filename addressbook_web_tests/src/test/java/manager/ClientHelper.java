@@ -1,7 +1,11 @@
 package manager;
 
 import model.ClientData;
+import model.GroupData;
 import org.openqa.selenium.By;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ClientHelper extends HelperBase {
@@ -30,14 +34,14 @@ public class ClientHelper extends HelperBase {
         return applicationManadger.isElementPresent(By.name("selected[]"));
     }
 
-    public void removeClient() {
-        selectClient();
+    public void removeClient(ClientData client) {
+        selectClient(client);
         initClientCreation();
         returnToHomePage();
     }
 
-    private void selectClient() {
-        click(By.name("selected[]"));
+    private void selectClient(ClientData client) {
+        click(By.cssSelector(String.format("input[value='%s']", client.id())));
     }
 
     public void openClientPage() {
@@ -56,6 +60,21 @@ public class ClientHelper extends HelperBase {
 
     public int getCountClient() {
         return manager.driver.findElements(By.name("selected[]")).size();
+    }
+
+    public List<ClientData> getList() {
+        var clients = new ArrayList<ClientData>();
+        var tds = manager.driver.findElements(By.name("entry"));
+        for (var td : tds) {
+            var lastN = td.findElement(By.xpath("./td[2]"));
+            var firstN = td.findElement(By.xpath("./td[3]"));
+            var lastname = lastN.getText();
+            var firstname = firstN.getText();
+            var checkbox = td.findElement(By.name("selected[]"));
+            var id = checkbox.getAttribute("value");
+            clients.add(new ClientData().withId(id).withName(firstname, lastname));
+        }
+        return clients;
     }
 
 }
