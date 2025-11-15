@@ -54,4 +54,8 @@ public class ClientHelper extends HelperBase {
         click(By.name("submit"));
     }
 
+    public int getCountClient() {
+        return manager.driver.findElements(By.name("selected[]")).size();
+    }
+
 }
