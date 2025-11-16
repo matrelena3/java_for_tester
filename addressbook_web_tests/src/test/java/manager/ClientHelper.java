@@ -1,7 +1,6 @@
 package manager;
 
 import model.ClientData;
-import model.GroupData;
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;
@@ -40,6 +39,18 @@ public class ClientHelper extends HelperBase {
         returnToHomePage();
     }
 
+    public void modifyClient(ClientData client, ClientData modifiedClient) {
+        selectClient(client);
+        initClientModification();
+        fillClientForm(modifiedClient);
+        submitClientModification();
+        returnToHomePage();
+    }
+    private void initClientModification() { click(By.xpath("(//img[@alt='Edit'])[2]"));}
+
+    private void submitClientModification() { click(By.name("update"));}
+
+
     private void selectClient(ClientData client) {
         click(By.cssSelector(String.format("input[value='%s']", client.id())));
     }
@@ -76,5 +87,6 @@ public class ClientHelper extends HelperBase {
         }
         return clients;
     }
+
 
 }
