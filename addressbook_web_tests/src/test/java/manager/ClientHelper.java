@@ -40,13 +40,13 @@ public class ClientHelper extends HelperBase {
     }
 
     public void modifyClient(ClientData client, ClientData modifiedClient) {
-        selectClient(client);
-        initClientModification();
+        returnToHomePage();
+        initClientModification(client);
         fillClientForm(modifiedClient);
         submitClientModification();
         returnToHomePage();
     }
-    private void initClientModification() { click(By.xpath("(//img[@alt='Edit'])[2]"));}
+    private void initClientModification(ClientData client) { click(By.xpath(String.format("//input[@value='%s']/ancestor::tr//img[@title='Edit']", client.id())));}
 
     private void submitClientModification() { click(By.name("update"));}
 

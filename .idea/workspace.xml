@@ -7,11 +7,6 @@
     <list default="true" id="2321d90f-bbf3-4fc0-bba8-14f1745db707" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/GroupHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/GroupHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/model/ClientData.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/model/ClientData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientCreationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientCreationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupCreationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupModificationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupModificationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +97,7 @@
       <recent name="Rectangle" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ClientModificationTest">
+  <component name="RunManager" selected="Gradle.ClientModificationTest.canModifyClient">
     <configuration name="ClientCreationTest.CanCreateMultipleClients" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -251,8 +246,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ClientModificationTest" />
         <item itemvalue="Gradle.ClientModificationTest.canModifyClient" />
+        <item itemvalue="Gradle.ClientModificationTest" />
         <item itemvalue="Gradle.ClientCreationTest.CanNotCreateClient" />
         <item itemvalue="Gradle.ClientCreationTest.CanCreateMultipleClients" />
         <item itemvalue="Gradle.GroupCreationTests.CanCreateMultipleGroups" />
