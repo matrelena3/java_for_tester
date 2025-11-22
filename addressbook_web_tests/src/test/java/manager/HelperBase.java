@@ -22,6 +22,10 @@ public class HelperBase {
     }
 
     protected void attach(By locator, String file) {
-        manager.driver.findElement(locator).sendKeys(Paths.get(file).toAbsolutePath().toString());
+        if (file == null || file.isEmpty()) {
+            return;
+        }
+        String absolutePath = Paths.get(file).toAbsolutePath().toString();
+        manager.driver.findElement(locator).sendKeys(absolutePath);
     }
 }

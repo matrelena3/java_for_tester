@@ -1,5 +1,6 @@
 package test;
 
+import common.CommonFunctoins;
 import model.ClientData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -27,7 +28,7 @@ public class ClientCreationTest extends TestBase {
             }
         }
         for (int i = 0; i < 5; i++) {
-            result.add(new ClientData("", randomString(i * 10), randomString(i * 10), randomString(i * 10), randomString(i * 10), randomString(i * 10), "src/test/resources/images/avatar.png"));
+            result.add(new ClientData("", CommonFunctoins.randomString(i * 10), CommonFunctoins.randomString(i * 10), CommonFunctoins.randomString(i * 10), CommonFunctoins.randomString(i * 10), CommonFunctoins.randomString(i * 10), randomFile("src/test/resources/images")));
         }
         return result;
     }
@@ -50,7 +51,7 @@ public class ClientCreationTest extends TestBase {
         };
         newClients.sort(compareById);
         var expectedList = new ArrayList<>(oldClients);
-        expectedList.add(client.withId(newClients.get(newClients.size() - 1).id()).withAddress("").withHome("").withEmail(""));
+        expectedList.add(client.withId(newClients.get(newClients.size() - 1).id()).withAddress("").withHome("").withEmail("").withPhoto(""));
         expectedList.sort(compareById);
         Assertions.assertEquals(newClients, expectedList);
         Assertions.assertEquals(newClients, expectedList);
