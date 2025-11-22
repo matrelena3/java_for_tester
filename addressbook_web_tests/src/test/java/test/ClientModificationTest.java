@@ -13,8 +13,8 @@ public class ClientModificationTest extends TestBase {
     @Test
     public void  canModifyClient() {
         if (!app.clients().isClientPresent(app)) {
-            app.clients().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru"));
-            app.clients().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru"));
+            app.clients().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", ""));
+            app.clients().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", ""));
         }
         var oldClients = app.clients().getList();
         var rnd = new Random();

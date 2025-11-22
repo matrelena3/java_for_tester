@@ -27,6 +27,7 @@ public class ClientHelper extends HelperBase {
         type(By.name("address"), client.address());
         type(By.name("home"), client.home());
         type(By.name("email"), client.email());
+        attach(By.name("photo"), client.photo());
     }
 
     public boolean isClientPresent(ApplicationManadger applicationManadger) {
