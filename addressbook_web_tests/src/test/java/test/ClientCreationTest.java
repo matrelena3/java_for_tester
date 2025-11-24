@@ -1,10 +1,18 @@
 package test;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import common.CommonFunctoins;
 import model.ClientData;
+import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -12,7 +20,7 @@ import java.util.List;
 
 public class ClientCreationTest extends TestBase {
 
-    public static List<ClientData> clientProvider() {
+    public static List<ClientData> clientProvider() throws IOException {
         var result = new ArrayList<ClientData>();
         for (var firstname: List.of("", "Ivan")) {
             for (var lastname : List.of("", "Ivanov")) {
@@ -27,9 +35,10 @@ public class ClientCreationTest extends TestBase {
                 }
             }
         }
-        for (int i = 0; i < 5; i++) {
-            result.add(new ClientData("", CommonFunctoins.randomString(i * 10), CommonFunctoins.randomString(i * 10), CommonFunctoins.randomString(i * 10), CommonFunctoins.randomString(i * 10), CommonFunctoins.randomString(i * 10), randomFile("src/test/resources/images")));
-        }
+        var json = Files.readString(Paths.get("clients.json"));
+        ObjectMapper mapper = new ObjectMapper();
+        var value = mapper.readValue(new File("clients.json"), new TypeReference<List<ClientData>>() {});
+        result.addAll(value);
         return result;
     }
 

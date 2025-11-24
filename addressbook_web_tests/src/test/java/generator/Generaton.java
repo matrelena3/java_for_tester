@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import common.CommonFunctoins;
+import model.ClientData;
 import model.GroupData;
 
 import java.io.File;
@@ -64,7 +65,15 @@ public class Generaton {
     }
 
     private Object GenerateClients() {
-        return null;
+        var result = new ArrayList<ClientData>();
+        for (int i = 0; i < count; i++) {
+            result.add(new ClientData().withName(CommonFunctoins.randomString(i * 10), CommonFunctoins.randomString(i * 10))
+                    .withAddress(CommonFunctoins.randomString(i * 10))
+                    .withHome(CommonFunctoins.randomString(i * 10))
+                    .withEmail(CommonFunctoins.randomString(i * 10))
+                    .withPhoto(CommonFunctoins.randomFile("src/test/resources/images")));
+        }
+        return result;
     }
 
     private void save(Object data) throws IOException {
