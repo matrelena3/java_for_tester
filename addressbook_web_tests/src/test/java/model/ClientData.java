@@ -9,6 +9,12 @@ public record ClientData(String id, String firstname, String lastname , String a
     public ClientData withId(String id) {
         return new ClientData(id, this.firstname, this.lastname, this.address, this.home, this.email, this.photo);
     }
+    public ClientData withFirstname(String firstname) {
+        return new ClientData(this.id, firstname, this.lastname, this.address, this.home, this.email, this.photo);
+    }
+    public ClientData withLastname(String lastname) {
+        return new ClientData(this.id, this.firstname, lastname, this.address, this.home, this.email, this.photo);
+    }
     public ClientData withName(String firstname, String lastname) {
         return new ClientData(this.id, firstname, lastname, this.address, this.home, this.email, this.photo);
     }

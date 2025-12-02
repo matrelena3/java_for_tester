@@ -12,16 +12,16 @@ public class ClientModificationTest extends TestBase {
 
     @Test
     public void  canModifyClient() {
-        if (!app.clients().isClientPresent(app)) {
-            app.clients().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", "src/test/resources/images/avatar.png"));
-            app.clients().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", "src/test/resources/images/avatar.png"));
+        if (app.hbm().getClientCount() == 0) {
+            app.hbm().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", "src/test/resources/images/avatar.png"));
+            app.hbm().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", "src/test/resources/images/avatar.png"));
         }
-        var oldClients = app.clients().getList();
+        var oldClients = app.hbm().getClientList();
         var rnd = new Random();
         var index = rnd.nextInt(oldClients.size());
         ClientData testData = new ClientData().withName("modified name", "0011");
         app.clients().modifyClient(oldClients.get(index), testData);
-        var newClients = app.clients().getList();
+        var newClients = app.hbm().getClientList();
         var expectedList = new ArrayList<>(oldClients);
         expectedList.set(index, testData.withId(oldClients.get(index).id()));
         Comparator<ClientData> compareById = (o1, o2) -> {

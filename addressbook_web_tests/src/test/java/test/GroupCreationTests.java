@@ -79,7 +79,7 @@ public class GroupCreationTests extends TestBase {
                 .map(groups -> groups.withHeader("").withFooter(""))
                 .collect(Collectors.toList());
         
-        var newUiGroups = app.groups().getList();
+        var newUiGroups = app.jdbc().getGroupList();
         newUiGroups.sort(compareById);
         Assertions.assertEquals(cleanedExpectedList, newUiGroups);
     }
@@ -87,9 +87,9 @@ public class GroupCreationTests extends TestBase {
     @ParameterizedTest
     @MethodSource("negativeGroupProvider")
     public void CanNotCreateGroup(GroupData group) {
-        var oldGroups = app.groups().getList();
+        var oldGroups = app.jdbc().getGroupList();
         app.groups().createGroup(group);
-        var newGroups = app.groups().getList();
+        var newGroups = app.jdbc().getGroupList();
         Assertions.assertEquals(newGroups, oldGroups);
     }
 }

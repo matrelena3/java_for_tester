@@ -1,6 +1,8 @@
 package manager;
 
+import manager.hbm.ClientRecord;
 import manager.hbm.GroupRecord;
+import model.ClientData;
 import org.hibernate.cfg.Configuration;
 import model.GroupData;
 import org.hibernate.SessionFactory;
@@ -16,7 +18,7 @@ public class HibernateHelper extends HelperBase {
     public HibernateHelper(ApplicationManadger manager) {
     super(manager);
       sessionFactory = new Configuration()
-                        //.managedClass(Book.class)
+                        .addAnnotatedClass(ClientRecord.class)
                         .addAnnotatedClass(GroupRecord.class)
                         .setProperty(AvailableSettings.URL, "jdbc:mysql://localhost/addressbook")
                         .setProperty(AvailableSettings.USER, "root")
@@ -56,10 +58,53 @@ public class HibernateHelper extends HelperBase {
         });
     }
 
+    static List<ClientData> convertClientList(List<ClientRecord> records) {
+        List<ClientData> result = new ArrayList<>();
+        for (var record : records) {
+            result.add(convert(record));
+        }
+        return result;
+    }
+
+    private static ClientData convert(ClientRecord record) {
+        return new ClientData().withId("" + record.id)
+                               .withFirstname(record.firstname)
+                               .withLastname( record.lastname)
+                               .withAddress(record.address)
+                               .withEmail(record.email);
+    }
+
+    private static ClientRecord convert(ClientData data) {
+        var id = data.id();
+        if ("".equals(id)) {
+            id = "0";
+        }
+        return new ClientRecord(Integer.parseInt(id), data.firstname(), data.lastname(), data.address(), data.email());
+    }
+
     public void createGroup(GroupData groupData) {
         sessionFactory.inSession(session -> {
             session.getTransaction().begin();
             session.persist(convert(groupData));
+            session.getTransaction().commit();
+        });
+    }
+
+    public List<ClientData> getClientList() {
+        return convertClientList(sessionFactory.fromSession(session -> {
+            return session.createQuery("from ClientRecord", ClientRecord.class).list();
+        }));
+    }
+
+    public long getClientCount() {
+        return sessionFactory.fromSession(session -> {
+            return session.createQuery("select count (*) from ClientRecord", long.class).getSingleResult();
+        });
+    }
+    public void createClient(ClientData clientData) {
+        sessionFactory.inSession(session -> {
+            session.getTransaction().begin();
+            session.persist(convert(clientData));
             session.getTransaction().commit();
         });
     }

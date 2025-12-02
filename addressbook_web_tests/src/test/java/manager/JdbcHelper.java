@@ -1,6 +1,7 @@
 package manager;
 
 import com.mysql.jdbc.Driver;
+import model.ClientData;
 import model.GroupData;
 
 import java.sql.DriverManager;
@@ -28,6 +29,26 @@ public class JdbcHelper extends HelperBase {
             throw new RuntimeException(e);
         }
         return groups;
+    }
+
+    public List<ClientData> getClientList() {
+        var clients = new ArrayList<ClientData>();
+        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook", "root", "");
+             var statement = conn.createStatement();
+             var result = statement.executeQuery("SELECT id, firstname, lastname, address, email FROM addressbook"))
+        {
+            while (result.next()) {
+                clients.add(new ClientData()
+                        .withId(result.getString("id"))
+                        .withFirstname(result.getString("firstname"))
+                        .withLastname(result.getString( "lastname"))
+                        .withAddress(result.getString("address"))
+                        .withEmail(result.getString("email")));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return clients;
     }
 }
 

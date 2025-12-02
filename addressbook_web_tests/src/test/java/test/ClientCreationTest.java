@@ -2,7 +2,6 @@ package test;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import common.CommonFunctoins;
 import model.ClientData;
 import model.GroupData;
 import org.junit.jupiter.api.Assertions;
@@ -16,6 +15,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class ClientCreationTest extends TestBase {
@@ -52,26 +52,26 @@ public class ClientCreationTest extends TestBase {
     @ParameterizedTest
     @MethodSource("clientProvider")
     public void CanCreateMultipleClients(ClientData client) {
-        var oldClients = app.clients().getList();
+        var oldClients = app.hbm().getClientList();
         app.clients().createClient(client);
-        var newClients = app.clients().getList();
+        var newClients = app.hbm().getClientList();
         Comparator<ClientData> compareById = (o1, o2) -> {
             return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
         };
         newClients.sort(compareById);
+        var maxId = newClients.get(newClients.size() - 1).id();
         var expectedList = new ArrayList<>(oldClients);
-        expectedList.add(client.withId(newClients.get(newClients.size() - 1).id()).withAddress("").withHome("").withEmail("").withPhoto(""));
+        expectedList.add(client.withId(maxId).withHome("").withEmail("").withPhoto(""));
         expectedList.sort(compareById);
-        Assertions.assertEquals(newClients, expectedList);
         Assertions.assertEquals(newClients, expectedList);
     }
 
     @ParameterizedTest
     @MethodSource("negativeClientProvider")
     public void CanNotCreateClient(ClientData client) {
-        var oldClients = app.clients().getList();
+        var oldClients = app.jdbc().getClientList();
         app.clients().createClient(client);
-        var newClients = app.clients().getList();
+        var newClients = app.jdbc().getClientList();
         Assertions.assertEquals(newClients, oldClients);
     }
 }
