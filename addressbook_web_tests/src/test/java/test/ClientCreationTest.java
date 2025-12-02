@@ -2,9 +2,11 @@ package test;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import common.CommonFunctoins;
 import model.ClientData;
 import model.GroupData;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -64,14 +66,32 @@ public class ClientCreationTest extends TestBase {
         expectedList.add(client.withId(maxId).withHome("").withEmail("").withPhoto(""));
         expectedList.sort(compareById);
         Assertions.assertEquals(newClients, expectedList);
+
     }
 
     @ParameterizedTest
     @MethodSource("negativeClientProvider")
     public void CanNotCreateClient(ClientData client) {
-        var oldClients = app.jdbc().getClientList();
+        var oldClients = app.hbm().getClientList();
         app.clients().createClient(client);
-        var newClients = app.jdbc().getClientList();
+        var newClients = app.hbm().getClientList();
         Assertions.assertEquals(newClients, oldClients);
+    }
+
+    @Test
+    void canCreateClientInGroup() {
+        var client = new ClientData()
+                .withFirstname(CommonFunctoins.randomString(10))
+                .withLastname(CommonFunctoins.randomString(10))
+                .withPhoto(CommonFunctoins.randomFile("src/test/resources/images"));
+        if (app.hbm().getGroupCount() == 0) {
+            app.hbm().createGroup(new GroupData("", "group name", "group header", "group"));
+        }
+        var group = app.hbm().getGroupList().get(0);
+
+        var oldRelated = app.hbm().getClientsInGroup(group);
+        app.clients().create(client, group);
+        var newRelated = app.hbm().getClientsInGroup(group);
+        Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
     }
 }

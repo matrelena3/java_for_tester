@@ -62,9 +62,9 @@ public class GroupCreationTests extends TestBase {
     @ParameterizedTest
     @MethodSource("singleRandomGroup")
     public void CanCreateGroup(GroupData group) {
-        var oldGroups = app.jdbc().getGroupList();
+        var oldGroups = app.hbm().getGroupList();
         app.groups().createGroup(group);
-        var newGroups = app.jdbc().getGroupList();
+        var newGroups = app.hbm().getGroupList();
         Comparator<GroupData> compareById = (o1, o2) -> {
             return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
         };
@@ -75,21 +75,21 @@ public class GroupCreationTests extends TestBase {
         expectedList.sort(compareById);
         Assertions.assertEquals(newGroups, expectedList);
 
-        List<GroupData> cleanedExpectedList = expectedList.stream()
-                .map(groups -> groups.withHeader("").withFooter(""))
+          List<GroupData> cleanedExpectedList = expectedList.stream()
+              .map(groups -> groups.withHeader("").withFooter(""))
                 .collect(Collectors.toList());
-        
-        var newUiGroups = app.jdbc().getGroupList();
-        newUiGroups.sort(compareById);
+
+        var newUiGroups = app.groups().getList();
+       newUiGroups.sort(compareById);
         Assertions.assertEquals(cleanedExpectedList, newUiGroups);
     }
 
     @ParameterizedTest
     @MethodSource("negativeGroupProvider")
     public void CanNotCreateGroup(GroupData group) {
-        var oldGroups = app.jdbc().getGroupList();
+        var oldGroups = app.hbm().getGroupList();
         app.groups().createGroup(group);
-        var newGroups = app.jdbc().getGroupList();
+        var newGroups = app.hbm().getGroupList();
         Assertions.assertEquals(newGroups, oldGroups);
     }
 }

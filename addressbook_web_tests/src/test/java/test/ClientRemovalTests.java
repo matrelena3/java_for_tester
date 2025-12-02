@@ -17,11 +17,11 @@ public class ClientRemovalTests extends TestBase {
       app.hbm().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", ""));
 
     }
-    var oldClients = app.clients().getList();
+    var oldClients = app.hbm().getClientList();
     var rnd = new Random();
     var index = rnd.nextInt(oldClients.size());
     app.clients().removeClient(oldClients.get(index));
-    var newClients = app.clients().getList();
+    var newClients = app.hbm().getClientList();
     var expectedList = new ArrayList<>(oldClients);
     expectedList.remove(index);
     Assertions.assertEquals(newClients, expectedList);

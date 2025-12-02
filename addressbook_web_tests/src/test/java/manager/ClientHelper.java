@@ -1,7 +1,9 @@
 package manager;
 
 import model.ClientData;
+import model.GroupData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,19 @@ public class ClientHelper extends HelperBase {
         submitClientCreation();
         returnToHomePage();
     }
+
+    public void create(ClientData client, GroupData group) {
+        openClientPage();
+        fillClientForm(client);
+        selectGroup(group);
+        submitClientCreation();
+        returnToHomePage();
+    }
+
+    private void selectGroup(GroupData group) {
+        new Select(manager.driver.findElement(By.name("new_group"))).selectByValue(group.id());
+    }
+
     private void fillClientForm(ClientData client) {
         type(By.name("firstname"), client.firstname());
         type(By.name("lastname"), client.lastname());
