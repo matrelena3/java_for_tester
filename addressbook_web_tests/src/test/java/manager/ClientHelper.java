@@ -105,4 +105,32 @@ public class ClientHelper extends HelperBase {
     }
 
 
+    public void addClientInGroup(ClientData client, GroupData group) {
+        selectClient(client);
+        chooseGroup(group);
+        addToGroup();
+        returnToHomePage();
+    }
+
+    private void addToGroup() {
+        click(By.name("add"));
+    }
+    private void chooseGroup(GroupData group) {
+        click(By.name("to_group"));
+        new Select(manager.driver.findElement(By.name("to_group"))).selectByValue(group.id());
+    }
+
+    public void removeClientFromGroup(ClientData client, GroupData group) {
+        selectGroupWithClient(group);
+        selectClient(client);
+        removeFromGroup();
+        returnToHomePage();
+    }
+    private void selectGroupWithClient(GroupData group) {
+        new Select(manager.driver.findElement(By.name("group"))).selectByValue(group.id());
+    }
+    private void removeFromGroup() {
+        click(By.name("remove"));
+    }
+
 }

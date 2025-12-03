@@ -17,6 +17,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 
@@ -93,5 +94,26 @@ public class ClientCreationTest extends TestBase {
         app.clients().create(client, group);
         var newRelated = app.hbm().getClientsInGroup(group);
         Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+    }
+
+    @Test
+    void RandomClientInGroup() {
+        if (app.hbm().getGroupCount() == 0) {
+            app.hbm().createGroup(new GroupData("", "group name", "group header", "group"));
+        }
+        var group = app.hbm().getGroupList().get(0);
+        if (app.hbm().getClientCount() == 0) {
+            app.hbm().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", "src/test/resources/images/avatar.png"));
+            app.hbm().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", "src/test/resources/images/avatar.png"));
+        }
+        var oldClients = app.hbm().getClientList();
+        var rnd = new Random();
+        var index = rnd.nextInt(oldClients.size());
+        var clientForAdd = oldClients.get(index);
+        var oldRelated = app.hbm().getClientsInGroup(group);
+        app.clients().addClientInGroup(clientForAdd, group);
+        var newRelated = app.hbm().getClientsInGroup(group);
+        Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+
     }
 }

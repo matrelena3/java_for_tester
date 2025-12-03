@@ -109,7 +109,7 @@ public class HibernateHelper extends HelperBase {
         });
     }
 
-    public List getClientsInGroup(GroupData group) {
+    public List<ClientData> getClientsInGroup(GroupData group) {
         return sessionFactory.fromSession(session -> {
            return convertClientList(session.get(GroupRecord.class, group.id()).clients);
         });

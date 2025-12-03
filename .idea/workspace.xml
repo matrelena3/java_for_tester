@@ -8,11 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/HibernateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/HibernateHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/hbm/GroupRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/hbm/GroupRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/JdbcHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/JdbcHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientCreationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientCreationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientRemovalTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientRemovalTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupCreationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupRemovalTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupRemovalTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/TestBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,8 +107,8 @@
       <recent name="C:\devel\home\java_for_tester\addressbook_web_tests\src\test\resources\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ClientRemovalTests.canRemoveClient">
-    <configuration name="ClientCreationTest.CanNotCreateClient" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.ClientRemovalTests.RemoveClientFromGroup">
+    <configuration name="ClientCreationTest.CanCreateMultipleClients" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
@@ -122,7 +121,76 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;test.ClientCreationTest.CanNotCreateClient&quot;" />
+            <option value="&quot;test.ClientCreationTest.CanCreateMultipleClients&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ClientCreationTest.RandomClientInGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;test.ClientCreationTest.RandomClientInGroup&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ClientCreationTest.canCreateClientInGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;test.ClientCreationTest.canCreateClientInGroup&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ClientRemovalTests.RemoveClientFromGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;test.ClientRemovalTests.RemoveClientFromGroup&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -178,90 +246,21 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GroupCreationTests.CanCreateGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;test.GroupCreationTests.CanCreateGroup&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="GroupCreationTests.CanNotCreateGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;test.GroupCreationTests.CanNotCreateGroup&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="GroupRemovalTests.canRemoveGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;test.GroupRemovalTests.canRemoveGroup&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Gradle.GroupCreationTests" />
+      <item itemvalue="Gradle.ClientCreationTest.RandomClientInGroup" />
+      <item itemvalue="Gradle.ClientRemovalTests.RemoveClientFromGroup" />
+      <item itemvalue="Gradle.ClientCreationTest.canCreateClientInGroup" />
       <item itemvalue="Gradle.ClientRemovalTests.canRemoveClient" />
-      <item itemvalue="Gradle.GroupCreationTests.CanNotCreateGroup" />
-      <item itemvalue="Gradle.ClientCreationTest.CanNotCreateClient" />
-      <item itemvalue="Gradle.GroupRemovalTests.canRemoveGroup" />
-      <item itemvalue="Gradle.GroupCreationTests.CanCreateGroup" />
+      <item itemvalue="Gradle.ClientCreationTest.CanCreateMultipleClients" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ClientRemovalTests.RemoveClientFromGroup" />
+        <item itemvalue="Gradle.ClientCreationTest.RandomClientInGroup" />
+        <item itemvalue="Gradle.ClientCreationTest.canCreateClientInGroup" />
+        <item itemvalue="Gradle.ClientCreationTest.CanCreateMultipleClients" />
         <item itemvalue="Gradle.ClientRemovalTests.canRemoveClient" />
-        <item itemvalue="Gradle.ClientCreationTest.CanNotCreateClient" />
-        <item itemvalue="Gradle.GroupRemovalTests.canRemoveGroup" />
-        <item itemvalue="Gradle.GroupCreationTests.CanNotCreateGroup" />
-        <item itemvalue="Gradle.GroupCreationTests.CanCreateGroup" />
       </list>
     </recent_temporary>
   </component>
