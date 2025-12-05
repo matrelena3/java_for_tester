@@ -106,14 +106,26 @@ public class ClientCreationTest extends TestBase {
             app.hbm().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", "src/test/resources/images/avatar.png"));
             app.hbm().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", "src/test/resources/images/avatar.png"));
         }
-        var oldClients = app.hbm().getClientList();
-        var rnd = new Random();
-        var index = rnd.nextInt(oldClients.size());
-        var clientForAdd = oldClients.get(index);
+        var allClients = app.hbm().getClientList();
+        var clientsInGroup = app.hbm().getClientsInGroup(group);
+        List<ClientData> clientsNotInGroup = allClients.stream()
+                .filter(client -> !clientsInGroup.contains(client)).toList();
+        ClientData clientForAdd;
+
+        if (clientsNotInGroup.isEmpty()) {
+            clientForAdd = new ClientData()
+                    .withFirstname(CommonFunctoins.randomString(10))
+                    .withLastname(CommonFunctoins.randomString(10))
+                    .withPhoto(CommonFunctoins.randomFile("src/test/resources/images"));
+            app.hbm().createClient(clientForAdd);
+        } else {
+            var randomIndex = new Random().nextInt(clientsNotInGroup.size());
+            clientForAdd = clientsNotInGroup.get(randomIndex);
+        }
+
         var oldRelated = app.hbm().getClientsInGroup(group);
         app.clients().addClientInGroup(clientForAdd, group);
         var newRelated = app.hbm().getClientsInGroup(group);
         Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
-
     }
 }

@@ -1,6 +1,5 @@
 package manager;
 
-import com.mysql.jdbc.Driver;
 import model.ClientData;
 import model.GroupData;
 
