@@ -10,6 +10,8 @@ import org.hibernate.cfg.AvailableSettings;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 public class HibernateHelper extends HelperBase {
 
@@ -113,5 +115,26 @@ public class HibernateHelper extends HelperBase {
         return sessionFactory.fromSession(session -> {
            return convertClientList(session.get(GroupRecord.class, group.id()).clients);
         });
+    }
+
+    public ClientData findClientNotInGroup(GroupData group) {
+        List<ClientData> allClients = getClientList();
+        List<ClientData> clientsInGroup = getClientsInGroup(group);
+
+        List<ClientData> clientsNotInGroup = allClients.stream()
+                .filter(client -> !clientsInGroup.contains(client))
+                .collect(Collectors.toList());
+
+        if (!clientsNotInGroup.isEmpty()) {
+            Random random = new Random();
+            int randomIndex = random.nextInt(clientsNotInGroup.size());
+            return clientsNotInGroup.get(randomIndex);
+        } else {
+            ClientData newClient = new ClientData()
+                    .withFirstname("UniqueName_" + new Random().nextInt(100))
+                    .withLastname("UniqueLastname");
+            createClient(newClient);
+            return newClient;
+        }
     }
 }

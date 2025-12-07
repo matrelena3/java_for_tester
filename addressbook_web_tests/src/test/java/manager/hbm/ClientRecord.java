@@ -2,6 +2,7 @@ package manager.hbm;
 
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -24,7 +25,17 @@ public class ClientRecord {
 
     public String email;
 
-    public Date middlename = new Date();
+    public String middlename = new String();
+    public String nickname = new String();
+    public String company = new String();
+    private String title = new String();
+    private String home = new String();
+    public String mobile = new String();
+    public String work = new String();
+    public String fax = new String();
+    public String email2 = new String();
+    public String email3 = new String();
+    public String homepage = new String();
 
     public ClientRecord() {
     }
