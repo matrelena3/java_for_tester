@@ -14,6 +14,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Generaton {
 
@@ -53,27 +56,25 @@ public class Generaton {
         }
     }
 
+    private Object generateData(Supplier<Object> dataSupplier) {
+        return Stream.generate(dataSupplier).limit(count).collect(Collectors.toList());
+    }
+
 
     private Object GenerateGroups() {
-        var result = new ArrayList<GroupData>();
-        for (int i = 0; i < count; i++) {
-            result.add(new GroupData().withName(CommonFunctoins.randomString(i * 10))
-                    .withFooter(CommonFunctoins.randomString(i * 10))
-                    .withHeader(CommonFunctoins.randomString(i * 10)));
-        }
-        return result;
+        return  generateData(() -> new GroupData()
+                    .withName(CommonFunctoins.randomString(10))
+                    .withFooter(CommonFunctoins.randomString(10))
+                    .withHeader(CommonFunctoins.randomString(10)));
     }
 
     private Object GenerateClients() {
-        var result = new ArrayList<ClientData>();
-        for (int i = 0; i < count; i++) {
-            result.add(new ClientData().withName(CommonFunctoins.randomString(i * 10), CommonFunctoins.randomString(i * 10))
-                    .withAddress(CommonFunctoins.randomString(i * 10))
-                    .withHome(CommonFunctoins.randomString(i * 10))
-                    .withEmail(CommonFunctoins.randomString(i * 10))
+        return  generateData(() -> new ClientData()
+                    .withName(CommonFunctoins.randomString(10), CommonFunctoins.randomString(10))
+                    .withAddress(CommonFunctoins.randomString(10))
+                    .withHome(CommonFunctoins.randomString(10))
+                    .withEmail(CommonFunctoins.randomString(10))
                     .withPhoto(CommonFunctoins.randomFile("src/test/resources/images")));
-        }
-        return result;
     }
 
     private void save(Object data) throws IOException {

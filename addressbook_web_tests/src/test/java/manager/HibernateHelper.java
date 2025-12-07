@@ -29,11 +29,7 @@ public class HibernateHelper extends HelperBase {
     }
 
     static List<GroupData> convertList(List<GroupRecord> records) {
-        List<GroupData> result = new ArrayList<>();
-        for (var record : records) {
-            result.add(convert(record));
-        }
-        return result;
+       return records.stream().map(HibernateHelper::convert).collect(Collectors.toList());
     }
 
     private static GroupData convert(GroupRecord record) {
@@ -61,11 +57,7 @@ public class HibernateHelper extends HelperBase {
     }
 
     static List<ClientData> convertClientList(List<ClientRecord> records) {
-        List<ClientData> result = new ArrayList<>();
-        for (var record : records) {
-            result.add(convert(record));
-        }
-        return result;
+        return records.stream().map(HibernateHelper::convert).collect(Collectors.toList());
     }
 
     private static ClientData convert(ClientRecord record) {
