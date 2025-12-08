@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2321d90f-bbf3-4fc0-bba8-14f1745db707" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/common/CommonFunctoins.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/common/CommonFunctoins.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/generator/Generaton.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/generator/Generaton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/GroupHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/GroupHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/HibernateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/HibernateHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupCreationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +103,7 @@
       <recent name="C:\devel\home\java_for_tester\addressbook_web_tests\src\test\resources\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.GroupCreationTests.CanCreateGroup">
+  <component name="RunManager" selected="Gradle.ClientCreationTest.RandomClientInGroup">
     <configuration name="ClientCreationTest.CanCreateMultipleClients" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -255,8 +252,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.GroupCreationTests.CanCreateGroup" />
         <item itemvalue="Gradle.ClientCreationTest.RandomClientInGroup" />
+        <item itemvalue="Gradle.GroupCreationTests.CanCreateGroup" />
         <item itemvalue="Gradle.ClientCreationTest.canCreateClientInGroup" />
         <item itemvalue="Gradle.ClientRemovalTests.RemoveClientFromGroup" />
         <item itemvalue="Gradle.ClientCreationTest.CanCreateMultipleClients" />
@@ -301,6 +298,16 @@
           <url>file://$PROJECT_DIR$/sandbox/src/main/java/Hello.java</url>
           <line>3</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

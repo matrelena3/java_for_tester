@@ -8,7 +8,6 @@ import model.GroupData;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AvailableSettings;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -95,12 +94,13 @@ public class HibernateHelper extends HelperBase {
             return session.createQuery("select count (*) from ClientRecord", long.class).getSingleResult();
         });
     }
-    public void createClient(ClientData clientData) {
+    public ClientData createClient(ClientData clientData) {
         sessionFactory.inSession(session -> {
             session.getTransaction().begin();
             session.persist(convert(clientData));
             session.getTransaction().commit();
         });
+        return clientData;
     }
 
     public List<ClientData> getClientsInGroup(GroupData group) {
@@ -125,8 +125,7 @@ public class HibernateHelper extends HelperBase {
             ClientData newClient = new ClientData()
                     .withFirstname("UniqueName_" + new Random().nextInt(100))
                     .withLastname("UniqueLastname");
-            createClient(newClient);
-            return newClient;
+            return createClient(newClient);
         }
     }
 }

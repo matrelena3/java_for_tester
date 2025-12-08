@@ -106,6 +106,7 @@ public class ClientHelper extends HelperBase {
 
 
     public void addClientInGroup(ClientData client, GroupData group) {
+        returnToHomePage();
         selectClient(client);
         chooseGroup(group);
         addToGroup();
