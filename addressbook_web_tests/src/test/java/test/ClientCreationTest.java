@@ -17,8 +17,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Random;
-import java.util.stream.Collectors;
 
 
 public class ClientCreationTest extends TestBase {
@@ -31,7 +29,7 @@ public class ClientCreationTest extends TestBase {
                     for (var home : List.of("", "110022")) {
                         for (var email : List.of("", "ok@ok.ru")) {
                             for (var photo : List.of("src/test/resources/images/avatar.png")) {
-                                result.add(new ClientData("", firstname, lastname, address, home, email, photo));
+                                result.add(new ClientData("", firstname, lastname, address, home, email, photo, "", "", ""));
                             }
                         }
                     }
@@ -47,7 +45,7 @@ public class ClientCreationTest extends TestBase {
 
     public static List<ClientData> negativeClientProvider() {
         var result = new ArrayList<ClientData>(List.of(
-                new ClientData("", "firstname'", "", "", "", "", "")));
+                new ClientData("", "firstname'", "", "", "", "", "", "", "", "")));
         return result;
     }
 
@@ -103,8 +101,8 @@ public class ClientCreationTest extends TestBase {
         }
         var group = app.hbm().getGroupList().get(0);
         if (app.hbm().getClientCount() == 0) {
-            app.hbm().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", "src/test/resources/images/avatar.png"));
-            app.hbm().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", "src/test/resources/images/avatar.png"));
+            app.hbm().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", "src/test/resources/images/avatar.png", "", "", ""));
+            app.hbm().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", "src/test/resources/images/avatar.png", "", "", ""));
         }
         var clientForAdd = app.hbm().findClientNotInGroup(group);
 

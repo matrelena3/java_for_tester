@@ -13,8 +13,8 @@ public class ClientModificationTest extends TestBase {
     @Test
     public void  canModifyClient() {
         if (app.hbm().getClientCount() == 0) {
-            app.hbm().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", "src/test/resources/images/avatar.png"));
-            app.hbm().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", "src/test/resources/images/avatar.png"));
+            app.hbm().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", "src/test/resources/images/avatar.png", "", "", ""));
+            app.hbm().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", "src/test/resources/images/avatar.png", "", "", ""));
         }
         var oldClients = app.hbm().getClientList();
         var rnd = new Random();

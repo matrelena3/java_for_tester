@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -48,7 +49,7 @@ public class GroupCreationTests extends TestBase {
         return result;
     }
 
-    public static Stream<GroupData> singleRandomGroup() {
+    public static Stream<GroupData> RandomGroup() {
         Supplier<GroupData> randomGroup = () -> new GroupData()
                 .withName(CommonFunctoins.randomString(10))
                 .withHeader(CommonFunctoins.randomString(20))
@@ -63,28 +64,24 @@ public class GroupCreationTests extends TestBase {
     }
 
     @ParameterizedTest
-    @MethodSource("singleRandomGroup")
+    @MethodSource("RandomGroup")
     public void CanCreateGroup(GroupData group) {
         var oldGroups = app.hbm().getGroupList();
         app.groups().createGroup(group);
         var newGroups = app.hbm().getGroupList();
-        Comparator<GroupData> compareById = (o1, o2) -> {
-            return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
-        };
-        newGroups.sort(compareById);
-        var maxId = newGroups.get(newGroups.size() - 1).id();
+
+        var extraGroups = newGroups.stream().filter(g -> ! oldGroups.contains(g)).toList();
+        var newId = extraGroups.get(0).id();
         var expectedList = new ArrayList<>(oldGroups);
-        expectedList.add(group.withId(maxId));
-        expectedList.sort(compareById);
-        Assertions.assertEquals(newGroups, expectedList);
+        expectedList.add(group.withId(newId));
+        Assertions.assertEquals(Set.copyOf(newGroups), Set.copyOf(expectedList));
 
           List<GroupData> cleanedExpectedList = expectedList.stream()
               .map(groups -> groups.withHeader("").withFooter(""))
                 .collect(Collectors.toList());
 
         var newUiGroups = app.groups().getList();
-       newUiGroups.sort(compareById);
-        Assertions.assertEquals(cleanedExpectedList, newUiGroups);
+        Assertions.assertEquals(Set.copyOf(cleanedExpectedList), Set.copyOf(newUiGroups));
     }
 
     @ParameterizedTest

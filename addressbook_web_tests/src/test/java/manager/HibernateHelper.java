@@ -61,10 +61,14 @@ public class HibernateHelper extends HelperBase {
 
     private static ClientData convert(ClientRecord record) {
         return new ClientData().withId("" + record.id)
-                               .withFirstname(record.firstname)
-                               .withLastname( record.lastname)
-                               .withAddress(record.address)
-                               .withEmail(record.email);
+                .withFirstname(record.firstname)
+                .withLastname( record.lastname)
+                .withAddress(record.address)
+                .withEmail(record.email)
+                .withHome(record.home)
+                .withWork(record.work)
+                .withMobile(record.mobile)
+                .withSecondary(record.phone2);
     }
 
     private static ClientRecord convert(ClientData data) {

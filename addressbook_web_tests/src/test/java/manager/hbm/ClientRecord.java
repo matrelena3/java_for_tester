@@ -25,13 +25,18 @@ public class ClientRecord {
 
     public String email;
 
+    public String home;
+
+    public String work;
+
+    public String mobile;
+
+    public String phone2;
+
     public String middlename = new String();
     public String nickname = new String();
     public String company = new String();
-    private String title = new String();
-    private String home = new String();
-    public String mobile = new String();
-    public String work = new String();
+    public String title = new String();
     public String fax = new String();
     public String email2 = new String();
     public String email3 = new String();

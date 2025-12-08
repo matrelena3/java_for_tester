@@ -14,7 +14,7 @@ public class CommonFunctoins {
         Supplier<Integer> randomNumbers = () -> rnd.nextInt(26);
         var result = Stream.generate(randomNumbers)
                 .limit(n)
-                .map(i -> 'a' + 1)
+                .map(i -> 'a' + i)
                 .map(Character::toString)
                 .collect(Collectors.joining());
         return result;
