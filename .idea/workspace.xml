@@ -6,17 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2321d90f-bbf3-4fc0-bba8-14f1745db707" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/common/CommonFunctoins.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/common/CommonFunctoins.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/HibernateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/HibernateHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/hbm/ClientRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/hbm/ClientRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/model/ClientData.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/model/ClientData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientCreationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientCreationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientInfoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientInfoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientModificationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientModificationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientRemovalTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientRemovalTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupCreationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupCreationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupModificationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/GroupModificationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sandbox/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +110,98 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.ClientInfoTest.testPhone">
+    <configuration name="ClientCreationTest.CanCreateMultipleClients" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;test.ClientCreationTest.CanCreateMultipleClients&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ClientCreationTest.RandomClientInGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;test.ClientCreationTest.RandomClientInGroup&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ClientInfoTest.testAddress" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;test.ClientInfoTest.testAddress&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ClientInfoTest.testEmail" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;test.ClientInfoTest.testEmail&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="ClientInfoTest.testPhone" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -159,86 +248,21 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GroupModificationTests.canModifyGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;test.GroupModificationTests.canModifyGroup&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="CollectionTest.testMap" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sandbox.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CollectionTest" />
-      <option name="METHOD_NAME" value="testMap" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReverseChecks.testSort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sandbox.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.geometry.figures.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.geometry.figures" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.geometry.figures.ReverseChecks" />
-      <option name="METHOD_NAME" value="testSort" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReverseChecks.testSqqrt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sandbox.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.geometry.figures.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.geometry.figures" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.geometry.figures.ReverseChecks" />
-      <option name="METHOD_NAME" value="testSqqrt" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Gradle.GroupCreationTests" />
+      <item itemvalue="Gradle.ClientCreationTest.CanCreateMultipleClients" />
+      <item itemvalue="Gradle.ClientCreationTest.RandomClientInGroup" />
+      <item itemvalue="Gradle.ClientInfoTest.testAddress" />
+      <item itemvalue="Gradle.ClientInfoTest.testEmail" />
       <item itemvalue="Gradle.ClientInfoTest.testPhone" />
-      <item itemvalue="Gradle.GroupModificationTests.canModifyGroup" />
-      <item itemvalue="JUnit.CollectionTest.testMap" />
-      <item itemvalue="JUnit.ReverseChecks.testSort" />
-      <item itemvalue="JUnit.ReverseChecks.testSqqrt" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.ClientInfoTest.testPhone" />
-        <item itemvalue="JUnit.CollectionTest.testMap" />
-        <item itemvalue="JUnit.ReverseChecks.testSort" />
-        <item itemvalue="JUnit.ReverseChecks.testSqqrt" />
-        <item itemvalue="Gradle.GroupModificationTests.canModifyGroup" />
+        <item itemvalue="Gradle.ClientInfoTest.testAddress" />
+        <item itemvalue="Gradle.ClientCreationTest.CanCreateMultipleClients" />
+        <item itemvalue="Gradle.ClientCreationTest.RandomClientInGroup" />
+        <item itemvalue="Gradle.ClientInfoTest.testEmail" />
       </list>
     </recent_temporary>
   </component>
@@ -282,14 +306,14 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java</url>
-          <line>113</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientInfoTest.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/addressbook_web_tests/src/test/java/manager/ClientHelper.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/ClientInfoTest.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

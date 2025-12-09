@@ -15,8 +15,8 @@ public class ClientRemovalTests extends TestBase {
   @Test
   public void  canRemoveClient() {
     if (app.hbm().getClientCount() == 0) {
-      app.hbm().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", "", "", "", ""));
-      app.hbm().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", "", "", "", ""));
+      app.hbm().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", "", "", "", "", "", "", ""));
+      app.hbm().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", "", "", "", "", "", "", ""));
 
     }
     var oldClients = app.hbm().getClientList();

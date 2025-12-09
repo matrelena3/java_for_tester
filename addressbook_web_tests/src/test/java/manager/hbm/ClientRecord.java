@@ -38,9 +38,14 @@ public class ClientRecord {
     public String company = new String();
     public String title = new String();
     public String fax = new String();
-    public String email2 = new String();
-    public String email3 = new String();
     public String homepage = new String();
+
+    public String email2;
+
+    public String email3;
+    public String address2;
+
+
 
     public ClientRecord() {
     }
