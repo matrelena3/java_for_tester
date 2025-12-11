@@ -17,13 +17,14 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 
 public class ClientCreationTest extends TestBase {
 
     public static List<ClientData> clientProvider() throws IOException {
         var result = new ArrayList<ClientData>();
-        for (var firstname: List.of("", "Ivan")) {
+        for (var firstname : List.of("", "Ivan")) {
             for (var lastname : List.of("", "Ivanov")) {
                 for (var address : List.of("", "Rus")) {
                     for (var home : List.of("", "110022")) {
@@ -38,10 +39,12 @@ public class ClientCreationTest extends TestBase {
         }
         var json = Files.readString(Paths.get("clients.json"));
         ObjectMapper mapper = new ObjectMapper();
-        var value = mapper.readValue(new File("clients.json"), new TypeReference<List<ClientData>>() {});
+        var value = mapper.readValue(new File("clients.json"), new TypeReference<List<ClientData>>() {
+        });
         result.addAll(value);
         return result;
     }
+
 
     public static List<ClientData> negativeClientProvider() {
         var result = new ArrayList<ClientData>(List.of(
@@ -96,19 +99,23 @@ public class ClientCreationTest extends TestBase {
 
     @Test
     void RandomClientInGroup() {
-        if (app.hbm().getGroupCount() == 0) {
-            app.hbm().createGroup(new GroupData("", "group name", "group header", "group"));
-        }
-        var group = app.hbm().getGroupList().get(0);
-        if (app.hbm().getClientCount() == 0) {
-            app.hbm().createClient(new ClientData("", "Ivan", "Ivanoff", "New 12", "896541256325", "ok@ok.ru", "src/test/resources/images/avatar.png", "", "", "", "", "", ""));
-            app.hbm().createClient(new ClientData("", "Vova", "Vovik", "New 007", "1212", "122@ok.ru", "src/test/resources/images/avatar.png", "", "", "", "", "", ""));
-        }
-        var clientForAdd = app.hbm().findClientNotInGroup(group);
+        var pair = app.hbm().findClientNotInAnyGroup().orElseGet(() -> {
+            var client = new ClientData()
+                    .withFirstname(CommonFunctoins.randomString(10))
+                    .withLastname(CommonFunctoins.randomString(10))
+                    .withPhoto(CommonFunctoins.randomFile("src/test/resources/images"));
+            ClientData newClient = app.hbm().getClientList().stream()
+                    .max(Comparator.comparingInt(c -> Integer.parseInt(c.id()))).get();
+            return Map.entry(newClient, app.hbm().getGroupList().get(0));
+        });
+        ClientData client = pair.getKey();
+        GroupData group = pair.getValue();
+        var oldClients = app.hbm().getClientsInGroup(group).size();
+        app.clients().addClientInGroup(client, group);
+        var newClients = app.hbm().getClientsInGroup(group).size();
 
-        var oldRelated = app.hbm().getClientsInGroup(group);
-        app.clients().addClientInGroup(clientForAdd, group);
-        var newRelated = app.hbm().getClientsInGroup(group);
-        Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
+        Assertions.assertEquals(oldClients + 1, newClients);
     }
+
 }
+

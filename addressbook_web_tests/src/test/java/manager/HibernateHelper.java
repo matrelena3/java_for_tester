@@ -9,6 +9,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AvailableSettings;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -116,23 +118,15 @@ public class HibernateHelper extends HelperBase {
         });
     }
 
-    public ClientData findClientNotInGroup(GroupData group) {
-        List<ClientData> allClients = getClientList();
-        List<ClientData> clientsInGroup = getClientsInGroup(group);
-
-        List<ClientData> clientsNotInGroup = allClients.stream()
-                .filter(client -> !clientsInGroup.contains(client))
-                .collect(Collectors.toList());
-
-        if (!clientsNotInGroup.isEmpty()) {
-            Random random = new Random();
-            int randomIndex = random.nextInt(clientsNotInGroup.size());
-            return clientsNotInGroup.get(randomIndex);
-        } else {
-            ClientData newClient = new ClientData()
-                    .withFirstname("UniqueName_" + new Random().nextInt(100))
-                    .withLastname("UniqueLastname");
-            return createClient(newClient);
+    public Optional<Map.Entry<ClientData, GroupData>> findClientNotInAnyGroup() {
+        for (ClientData contact : getClientList()) {
+            for (GroupData group : getGroupList()) {
+                if (!getClientsInGroup(group).contains(contact)) {
+                    return Optional.of(Map.entry(contact, group));
+                }
+            }
         }
+        return Optional.empty();
     }
+
 }
