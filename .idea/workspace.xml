@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2321d90f-bbf3-4fc0-bba8-14f1745db707" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/addressbook_web_tests/src/test/java/test/TestBase.java" afterDir="false" />
-    </list>
+    <list default="true" id="2321d90f-bbf3-4fc0-bba8-14f1745db707" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,7 +108,7 @@
       <recent name="C:\devel\home\java_for_tester\addressbook_web_tests\src\test\resources\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.LoginTests.canLogin">
+  <component name="RunManager" selected="Gradle.LoginTests">
     <configuration name="ClientCreationTest.RandomClientInGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -261,8 +257,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.LoginTests.canLogin" />
         <item itemvalue="Gradle.LoginTests" />
+        <item itemvalue="Gradle.LoginTests.canLogin" />
         <item itemvalue="Gradle.ClientCreationTest.RandomClientInGroup" />
         <item itemvalue="Gradle.ClientCreationTest.canCreateClientInGroup" />
         <item itemvalue="Gradle.ClientInfoTest.testPhone" />

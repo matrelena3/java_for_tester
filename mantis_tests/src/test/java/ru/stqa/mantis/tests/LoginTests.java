@@ -3,9 +3,8 @@ package ru.stqa.mantis.tests;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static ru.stqa.mantis.tests.TestBase.app;
 
-public class LoginTests {
+public class LoginTests extends TestBase {
 
     @Test
     void canLogin() {
