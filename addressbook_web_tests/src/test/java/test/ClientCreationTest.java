@@ -104,6 +104,10 @@ public class ClientCreationTest extends TestBase {
                     .withFirstname(CommonFunctoins.randomString(10))
                     .withLastname(CommonFunctoins.randomString(10))
                     .withPhoto(CommonFunctoins.randomFile("src/test/resources/images"));
+            app.clients().createClient(client);
+            if (app.hbm().getGroupList().isEmpty()) {
+                app.groups().createGroup(new GroupData().withName("test group"));
+            }
             ClientData newClient = app.hbm().getClientList().stream()
                     .max(Comparator.comparingInt(c -> Integer.parseInt(c.id()))).get();
             return Map.entry(newClient, app.hbm().getGroupList().get(0));
