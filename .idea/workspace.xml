@@ -7,9 +7,7 @@
     <list default="true" id="2321d90f-bbf3-4fc0-bba8-14f1745db707" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mantis_tests/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mantis_tests/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/manager/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/mantis_tests/src/test/java/ru/stqa/mantis/tests/LoginTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +61,7 @@
       <list>
         <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -117,7 +116,7 @@
       <recent name="ru.stqa.mantis.common" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.JamesTest.canCreateUser">
+  <component name="RunManager" selected="Gradle.MailTests.canReceiveEmail">
     <configuration name="ClientCreationTest.RandomClientInGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -132,29 +131,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;test.ClientCreationTest.RandomClientInGroup&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="ClientCreationTest.canCreateClientInGroup" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/addressbook_web_tests" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;test.ClientCreationTest.canCreateClientInGroup&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -256,21 +232,44 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="MailTests.canReceiveEmail" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/mantis_tests" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.stqa.mantis.tests.MailTests.canReceiveEmail&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Gradle.GroupCreationTests" />
+      <item itemvalue="Gradle.MailTests.canReceiveEmail" />
       <item itemvalue="Gradle.JamesTest.canCreateUser" />
       <item itemvalue="Gradle.LoginTests" />
       <item itemvalue="Gradle.LoginTests.canLogin" />
-      <item itemvalue="Gradle.ClientCreationTest.canCreateClientInGroup" />
       <item itemvalue="Gradle.ClientCreationTest.RandomClientInGroup" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.MailTests.canReceiveEmail" />
         <item itemvalue="Gradle.JamesTest.canCreateUser" />
         <item itemvalue="Gradle.LoginTests.canLogin" />
         <item itemvalue="Gradle.ClientCreationTest.RandomClientInGroup" />
         <item itemvalue="Gradle.LoginTests" />
-        <item itemvalue="Gradle.ClientCreationTest.canCreateClientInGroup" />
       </list>
     </recent_temporary>
   </component>
