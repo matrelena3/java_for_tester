@@ -7,7 +7,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class CommonFunctoins {
+public class CommonFunctions {
 
     public static String randomString(int n) {
         var rnd = new Random();
