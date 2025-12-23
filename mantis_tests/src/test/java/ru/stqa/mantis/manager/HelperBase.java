@@ -11,6 +11,9 @@ public class HelperBase {
         this.manager = manager;
     }
 
+    public HelperBase() {
+    }
+
     protected void click(By locator) {
         manager.driver().findElement(locator).click();
     }

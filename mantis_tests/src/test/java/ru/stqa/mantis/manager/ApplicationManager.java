@@ -17,6 +17,7 @@ public class ApplicationManager {
     private RegHelper regHelper;
     private JamesApiHelper jamesApiHelper;
     private RestApiHelper restApiHelper;
+    private SoapApiHelper soapApiHelper;
 
     public void init(String browser, Properties properties) {
         this.string = browser;
@@ -79,14 +80,20 @@ public SessionHelper session() {
         }
         return regHelper;
     }
-
-
-
+    
     public RestApiHelper rest() {
         if (restApiHelper == null) {
             restApiHelper = new RestApiHelper(this);
         }
         return restApiHelper;
     }
+
+    public SoapApiHelper soap() {
+        if (soapApiHelper == null) {
+            soapApiHelper = new SoapApiHelper(this);
+        }
+        return soapApiHelper;
+    }
+    
     public String property(String name) {return properties.getProperty(name);}
 }
