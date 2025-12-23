@@ -13,17 +13,17 @@ public class UserRegistrationTests extends TestBase {
         var username = CommonFunctions.randomString(5);
         var email = String.format("%s@localhost" , username);
         var password = "password";
-        // создать пользователя (адрес) на почтовом сервере (JamesHelper)
+        //  регистрируем новый адрес на почтовом сервере James, используя REST API
         app.jamesApi().addUser(email, password);
-        // открываем браузер, заполняем форму создания и отправляем (браузер, создать класс помощник)
-        app.reg().register(username);
+        // начинаем регистрацию нового пользователя в Mantis, используя REST API.
+        app.jamesApi().startRegister(username, email, password);
         // ждем почту (MailHelper)
         app.mail().receive(email, password, Duration.ofSeconds(60));
         // извлекаем ссылку из письма
         String url = app.mail().extractUrl(username);
         // проходим по ссылке и завершаем регистрацию пользователя (браузер)
         app.driver().get(url);
-        app.reg().fillEditForm(username, password);
+        app.reg().completeRegister(username, password);
         // проверяем, что пользователь может залогиниться (HttpSessionHelper)
         //app.session().login(username, password);
         app.http().login(username, password);

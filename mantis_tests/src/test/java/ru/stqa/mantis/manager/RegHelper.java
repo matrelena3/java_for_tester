@@ -8,7 +8,7 @@ public class RegHelper extends HelperBase {
         super(manager);
     }
 
-    public void register(String username) {
+    public void startRegister(String username) {
         click(By.xpath("//a[@href=\'signup_page.php\']"));
         type(By.name("username"), username);
         var email = String.format("%s@localhost", username);
@@ -16,7 +16,7 @@ public class RegHelper extends HelperBase {
         click(By.xpath("//input[@value=\'Signup\']"));
     }
 
-    public void fillEditForm(String username, String password) {
+    public void completeRegister(String username, String password) {
         type(By.id("realname"), username);
         type(By.id("password"), password);
         type(By.id("password-confirm"), password);
