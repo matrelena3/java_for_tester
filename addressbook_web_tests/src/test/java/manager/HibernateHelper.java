@@ -129,4 +129,10 @@ public class HibernateHelper extends HelperBase {
         return Optional.empty();
     }
 
+    public void refresh() {
+        try (var session = sessionFactory.openSession()) {
+            session.clear(); // Очищает кэш первого уровня
+        }
+    }
+
 }

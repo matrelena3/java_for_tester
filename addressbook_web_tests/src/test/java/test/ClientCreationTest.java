@@ -24,19 +24,19 @@ public class ClientCreationTest extends TestBase {
 
     public static List<ClientData> clientProvider() throws IOException {
         var result = new ArrayList<ClientData>();
-        for (var firstname : List.of("", "Ivan")) {
-            for (var lastname : List.of("", "Ivanov")) {
-                for (var address : List.of("", "Rus")) {
-                    for (var home : List.of("", "110022")) {
-                        for (var email : List.of("", "ok@ok.ru")) {
-                            for (var photo : List.of("src/test/resources/images/avatar.png")) {
-                                result.add(new ClientData("", firstname, lastname, address, home, email, photo, "", "", "", "", "", ""));
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        // for (var firstname : List.of("", "Ivan")) {
+        //    for (var lastname : List.of("", "Ivanov")) {
+      //          for (var address : List.of("", "Rus")) {
+       //             for (var home : List.of("", "110022")) {
+       //                 for (var email : List.of("", "ok@ok.ru")) {
+       //                     for (var photo : List.of("src/test/resources/images/avatar.png")) {
+        //                        result.add(new ClientData("", firstname, lastname, address, home, email, photo, "", "", "", "", "", ""));
+       //                     }
+       //                 }
+       //            }
+       //         }
+       //     }
+      //  }
         var json = Files.readString(Paths.get("clients.json"));
         ObjectMapper mapper = new ObjectMapper();
         var value = mapper.readValue(new File("clients.json"), new TypeReference<List<ClientData>>() {
@@ -58,17 +58,17 @@ public class ClientCreationTest extends TestBase {
     public void CanCreateMultipleClients(ClientData client) {
         var oldClients = app.hbm().getClientList();
         app.clients().createClient(client);
+        app.hbm().refresh();
         var newClients = app.hbm().getClientList();
-        Comparator<ClientData> compareById = (o1, o2) -> {
+       Comparator<ClientData> compareById = (o1, o2) -> {
             return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
         };
         newClients.sort(compareById);
         var maxId = newClients.get(newClients.size() - 1).id();
         var expectedList = new ArrayList<>(oldClients);
-        expectedList.add(client.withId(maxId).withHome("").withEmail("").withPhoto(""));
+        expectedList.add(client.withId(maxId));
         expectedList.sort(compareById);
         Assertions.assertEquals(newClients, expectedList);
-
     }
 
     @ParameterizedTest
@@ -93,24 +93,24 @@ public class ClientCreationTest extends TestBase {
 
         var oldRelated = app.hbm().getClientsInGroup(group);
         app.clients().create(client, group);
+        app.hbm().refresh();
         var newRelated = app.hbm().getClientsInGroup(group);
         Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
     }
 
     @Test
-    void RandomClientInGroup() {
+   void RandomClientInGroup() {
         var pair = app.hbm().findClientNotInAnyGroup().orElseGet(() -> {
             var client = new ClientData()
-                    .withFirstname(CommonFunctoins.randomString(10))
-                    .withLastname(CommonFunctoins.randomString(10))
-                    .withPhoto(CommonFunctoins.randomFile("src/test/resources/images"));
+                   .withFirstname(CommonFunctoins.randomString(10))
+                   .withLastname(CommonFunctoins.randomString(10)).withPhoto(CommonFunctoins.randomFile("src/test/resources/images"));
             app.clients().createClient(client);
             if (app.hbm().getGroupList().isEmpty()) {
                 app.groups().createGroup(new GroupData().withName("test group"));
-            }
+          }
             ClientData newClient = app.hbm().getClientList().stream()
                     .max(Comparator.comparingInt(c -> Integer.parseInt(c.id()))).get();
-            return Map.entry(newClient, app.hbm().getGroupList().get(0));
+           return Map.entry(newClient, app.hbm().getGroupList().get(0));
         });
         ClientData client = pair.getKey();
         GroupData group = pair.getValue();

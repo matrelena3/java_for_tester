@@ -5,8 +5,18 @@ plugins {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
+def allureVersion = '2.29.0'
+def aspectJVersion = '1.9.22'
+
 repositories {
     mavenCentral()
+}
+
+configurations {
+    agent {
+        canBeResolved = true
+        canBeConsumed = true
+    }
 }
 
 dependencies {
@@ -20,6 +30,10 @@ dependencies {
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2'
     implementation "mysql:mysql-connector-java:8.0.33"
     implementation "org.hibernate.orm:hibernate-core:6.3.0.CR1"
+    agent "org.aspectj:aspectjweaver:$aspectJVersion"
+
+    testImplementation platform("io.qameta.allure:allure-bom:$allureVersion")
+    testImplementation "io.qameta.allure:allure-junit5"
 }
 
 test {
@@ -30,4 +44,5 @@ test {
     if (project.hasProperty("target")) {
         systemProperty("target", project.property("target"))
     }
+    jvmArgs = [ "-javaagent:${configurations.agent.singleFile}" ]
 }
